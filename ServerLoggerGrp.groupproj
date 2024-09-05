@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{5FF947EF-2289-42F9-91E6-06CA188894A2}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Component Library Source\TMSWEBServerLoggerComp.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Core Source\TMSWEBServerLoggerCompWEB.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Demo\ServerLoggerDemo.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="TMSWEBServerLoggerComp">
+        <MSBuild Projects="Component Library Source\TMSWEBServerLoggerComp.dproj"/>
+    </Target>
+    <Target Name="TMSWEBServerLoggerComp:Clean">
+        <MSBuild Projects="Component Library Source\TMSWEBServerLoggerComp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TMSWEBServerLoggerComp:Make">
+        <MSBuild Projects="Component Library Source\TMSWEBServerLoggerComp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TMSWEBServerLoggerCompWEB">
+        <MSBuild Projects="Core Source\TMSWEBServerLoggerCompWEB.dproj"/>
+    </Target>
+    <Target Name="TMSWEBServerLoggerCompWEB:Clean">
+        <MSBuild Projects="Core Source\TMSWEBServerLoggerCompWEB.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TMSWEBServerLoggerCompWEB:Make">
+        <MSBuild Projects="Core Source\TMSWEBServerLoggerCompWEB.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ServerLoggerDemo">
+        <MSBuild Projects="Demo\ServerLoggerDemo.dproj"/>
+    </Target>
+    <Target Name="ServerLoggerDemo:Clean">
+        <MSBuild Projects="Demo\ServerLoggerDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ServerLoggerDemo:Make">
+        <MSBuild Projects="Demo\ServerLoggerDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="TMSWEBServerLoggerComp;TMSWEBServerLoggerCompWEB;ServerLoggerDemo"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="TMSWEBServerLoggerComp:Clean;TMSWEBServerLoggerCompWEB:Clean;ServerLoggerDemo:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="TMSWEBServerLoggerComp:Make;TMSWEBServerLoggerCompWEB:Make;ServerLoggerDemo:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

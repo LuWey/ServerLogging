@@ -1,0 +1,21 @@
+{
+	"folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "../../../LibPHP"
+    },
+    {
+      "path": "../../Finance/DeFiCenter/WWYPHP/REST"
+    }
+  ],
+  "settings": {
+    "intelephense.environment.includePaths": [
+      "C:\\Work\\Proj\\LibPHP",
+      "C:\\Work\\Proj\\LibPHP_VisumPoint",
+      "C:\\Work\\Proj\\MiesenUndPartner\\VisumPoint\\WWYPHPFunctions",
+      "C:\\Work\\Proj\\MiesenUndPartner\\VisumPoint\\REST\\SIS3"
+    ]
+  }
+}

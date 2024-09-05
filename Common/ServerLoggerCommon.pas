@@ -3,7 +3,7 @@
 Interface
 
 Const
- Version = '2.0';
+ Version = '2.1';
 
 Type
   // Event type for handling server log errors

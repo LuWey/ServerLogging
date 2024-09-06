@@ -1,6 +1,6 @@
 # About ServerLogging
 
-#### A TMS Web Core class and out-of-the-box component for sending browser console output to a server
+#### A TMS Web Core class and ready-to-use component for sending browser console output to a server
 
 The TServerLog class provides a logging mechanism that asynchronously sends browser console log messages to a server using web workers. It captures console log messages (log, info, warn, error) such as
 
@@ -24,7 +24,8 @@ A TMS Web Core component called TServerLogger is provided that wraps this class 
 
 Set up out-of-the-box server logging using the provided PHP script by following these instructions. For a more complex example with a custom server communication protocol, consult the documentation in the code and the demo application.
 
- - Install the TServerLogger component in the Delphi IDE. This is the component icon: <img alt="Component Icon" src="data:image/jpeg;base64,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" />
+ - Install the TServerLogger component in the Delphi IDE. This is the component icon: ![TServerLogger32](https://github.com/user-attachments/assets/7137ba34-7470-4cb7-9038-8f8d6e5f3871)
+
  - Drop the component on the form. 
  - Study the demo applications DPR files to determine which project options must be set.
   - Set the ServerURL to the server-side resource that receives the data. Enter "LogIt.php" if you want to use the provided ready-to-use PHP script.

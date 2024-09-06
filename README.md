@@ -28,11 +28,11 @@ Set up out-of-the-box server logging using the provided PHP script by following 
 
  - Drop the component on the form. 
  - Study the demo applications DPR files to determine which project options must be set.
-  - Set the ServerURL to the server-side resource that receives the data. Enter "LogIt.php" if you want to use the provided ready-to-use PHP script.
+ - Set the ServerURL to the server-side resource that receives the data. Enter "LogIt.php" if you want to use the provided ready-to-use PHP script.
  - Set the LogfileName to something like "mylogfile." The server should store the received logging data using this name. If you use "LogIt.php", the data will be written to a file with a name that combines the name you set here with the actual PHP session ID. This makes the file unique for each client.
  - Set the SendInterval in seconds, typically 3. The data to send to the server is cached until the time defined here in seconds has passed (or the number of lines cached is greater than CacheLines, see below).
  - Set CacheLines to a number of lines, typically 1000. The data to send to the server is cached until it reaches this number of lines (or the SendInterval seconds have passed, see above).
-- Set the number of retries to successfully send data to the server again after a failed attempt. If sending to the server fails more than the defined number of times, further attempts will be aborted. An exception will be raised containing the last error message, which may optionally be handled by the OnError event handler. Additionally, Enabled will be set to false. Set Retries to 0 to prevent any retries and fail immediately on the first error.
+ - Set the number of retries to successfully send data to the server again after a failed attempt, typically 3. If sending to the server fails more than the defined number of times, further attempts will be aborted. An exception will be raised containing the last error message, which may optionally be handled by the OnError event handler. Additionally, Enabled will be set to false. Set Retries to 0 to prevent any retries and fail immediately on the first error.
 - Optionally set a custom error event handler for OnError. Use this handler to present the error to the user, for example. In any case, if an error occurs, the component will be automatically disabled and further sending to the server will be stopped.
 
 You can achieve the same result by using an instance of the TServerLog class directly instead of the provided component. The class is located in Unit ServerLogging.pas. This class is configured the same as the component.

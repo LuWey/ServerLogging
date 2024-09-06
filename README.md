@@ -37,7 +37,7 @@ Set up out-of-the-box server logging using the provided PHP script by following 
 
 You can achieve the same result by using an instance of the TServerLog class directly instead of the provided component. The class is located in Unit ServerLogging.pas. This class is configured the same as the component.
 
-### Pitfall
+### Pitfalls
 When launching a TMS Web Core application using ServerLogging by hitting F9 in the Delphi IDE for local debugging, the mini webserver from TMS kicks in to handle the client requests. This mini webserver does not provide any PHP capabilities. Therefore, if you want to use the provided PHP script to handle the logging data on the server side, you will need a more sophisticated local webserver that supports PHP. XAMPP is a good example of such a server. Set up a local debug environment using XAMPP as follows:
 
  - Assume the TMS Web Core project is named "myapp" and its debug output directory is "c:\myapp\TMSWeb\Debug"
@@ -47,3 +47,4 @@ When launching a TMS Web Core application using ServerLogging by hitting F9 in t
  - When hitting F9 in the Delphi IDE, the browser starts with a URL like so: `localhost:8000/myapp/index.html`
  - Delete the ":8000" portion from this URL such that it now reads: `localhost/myapp/index.html` and hit `<enter>`
 
+Remember to add the PHP file to the TMS Web Core project so that it is automatically distributed to the appropriate \TMSWeb\ output subdirectory. Also remember to add ".php" (with leading dot!) to the project options under "Project > Options > Building > TMS Web > Compile > Automatically copied file suffixes".

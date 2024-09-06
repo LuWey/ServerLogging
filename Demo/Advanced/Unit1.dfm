@@ -1,6 +1,6 @@
 object Form1: TForm1
   Width = 290
-  Height = 180
+  Height = 151
   OnCreate = WebFormCreate
   object LabVersion: TWebLabel
     Left = 195
@@ -13,18 +13,9 @@ object Form1: TForm1
     HeightPercent = 100.000000000000000000
     WidthPercent = 100.000000000000000000
   end
-  object WebLabel2: TWebLabel
-    Left = 40
-    Top = 80
-    Width = 145
-    Height = 13
-    Caption = 'Fail after this nr. of responses'
-    HeightPercent = 100.000000000000000000
-    WidthPercent = 100.000000000000000000
-  end
   object BtnLogOneLine: TWebButton
     Left = 15
-    Top = 105
+    Top = 80
     Width = 156
     Height = 25
     Caption = 'Write 1 line to console'
@@ -45,7 +36,7 @@ object Form1: TForm1
   end
   object BtnLogMioLines: TWebButton
     Left = 15
-    Top = 136
+    Top = 111
     Width = 156
     Height = 25
     Caption = 'Write 1 mio. lines to console'
@@ -54,20 +45,20 @@ object Form1: TForm1
     WidthPercent = 100.000000000000000000
     OnClick = BtnLogMioLinesClick
   end
-  object CbxCustomResponseHandler: TWebCheckBox
+  object CbxProvokeError: TWebCheckBox
     Left = 15
     Top = 45
-    Width = 241
+    Width = 170
     Height = 22
-    Caption = 'Custom server response handling enabled'
+    Caption = 'Fail after this nr. of responses'
     ChildOrder = 1
     HeightPercent = 100.000000000000000000
     WidthPercent = 100.000000000000000000
-    OnClick = CbxCustomResponseHandlerClick
+    OnClick = CbxProvokeErrorClick
   end
   object EdNrRespToFail: TWebEdit
     Left = 206
-    Top = 77
+    Top = 45
     Width = 50
     Height = 22
     ChildOrder = 4
@@ -76,13 +67,14 @@ object Form1: TForm1
     WidthPercent = 100.000000000000000000
   end
   object ServerLogger1: TServerLogger
-    Version = '2.0'
+    Version = '2.1'
     LogfileName = 'Demo'
-    ServerURL = 'http://localhost/myAMI//WWYPHP/REST/API.php'
+    ServerURL = 'API.php'
     SendInterval = 1
     CacheLines = 10000
     Retries = 0
     OnError = ServerLogger1Error
+    OnServerResponse = ServerLogger1ServerResponse
     EnvelopeDataKey = 'LogData'
     EnvelopeJSON.Strings = (
       '{'
@@ -91,6 +83,6 @@ object Form1: TForm1
       '}')
     Enabled = True
     Left = 205
-    Top = 115
+    Top = 90
   end
 end

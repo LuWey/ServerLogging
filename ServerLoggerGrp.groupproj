@@ -9,7 +9,10 @@
         <Projects Include="Core Source\TMSWEBServerLoggerCompWEB.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="Demo\ServerLoggerDemo.dproj">
+        <Projects Include="Demo\Basic\BasicServerLoggerDemo.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Demo\Advanced\AdvancedServerLoggerDemo.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -38,23 +41,32 @@
     <Target Name="TMSWEBServerLoggerCompWEB:Make">
         <MSBuild Projects="Core Source\TMSWEBServerLoggerCompWEB.dproj" Targets="Make"/>
     </Target>
-    <Target Name="ServerLoggerDemo">
-        <MSBuild Projects="Demo\ServerLoggerDemo.dproj"/>
+    <Target Name="BasicServerLoggerDemo">
+        <MSBuild Projects="Demo\Basic\BasicServerLoggerDemo.dproj"/>
     </Target>
-    <Target Name="ServerLoggerDemo:Clean">
-        <MSBuild Projects="Demo\ServerLoggerDemo.dproj" Targets="Clean"/>
+    <Target Name="BasicServerLoggerDemo:Clean">
+        <MSBuild Projects="Demo\Basic\BasicServerLoggerDemo.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="ServerLoggerDemo:Make">
-        <MSBuild Projects="Demo\ServerLoggerDemo.dproj" Targets="Make"/>
+    <Target Name="BasicServerLoggerDemo:Make">
+        <MSBuild Projects="Demo\Basic\BasicServerLoggerDemo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="AdvancedServerLoggerDemo">
+        <MSBuild Projects="Demo\Advanced\AdvancedServerLoggerDemo.dproj"/>
+    </Target>
+    <Target Name="AdvancedServerLoggerDemo:Clean">
+        <MSBuild Projects="Demo\Advanced\AdvancedServerLoggerDemo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AdvancedServerLoggerDemo:Make">
+        <MSBuild Projects="Demo\Advanced\AdvancedServerLoggerDemo.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="TMSWEBServerLoggerComp;TMSWEBServerLoggerCompWEB;ServerLoggerDemo"/>
+        <CallTarget Targets="TMSWEBServerLoggerComp;TMSWEBServerLoggerCompWEB;BasicServerLoggerDemo;AdvancedServerLoggerDemo"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="TMSWEBServerLoggerComp:Clean;TMSWEBServerLoggerCompWEB:Clean;ServerLoggerDemo:Clean"/>
+        <CallTarget Targets="TMSWEBServerLoggerComp:Clean;TMSWEBServerLoggerCompWEB:Clean;BasicServerLoggerDemo:Clean;AdvancedServerLoggerDemo:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="TMSWEBServerLoggerComp:Make;TMSWEBServerLoggerCompWEB:Make;ServerLoggerDemo:Make"/>
+        <CallTarget Targets="TMSWEBServerLoggerComp:Make;TMSWEBServerLoggerCompWEB:Make;BasicServerLoggerDemo:Make;AdvancedServerLoggerDemo:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

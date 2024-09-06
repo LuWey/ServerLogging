@@ -4,10 +4,8 @@
    communication with an arbitrary server, to which the logger data is
    sent.
 
-   In this very example, the TServerLogger component talks to a REST API.
-   Unfortunately, this demo is therefore quite unlikely to work in your
-   own environment, but the explanations might come useful to establish
-   your own server communication.
+   In this very example, the TServerLogger component talks to a mocked
+   REST API, implemented by the provided PHP script named "API.php".
 
    1. Use property EnvelopeJSON to put a JSON envelope around the data
       to be sent to the server. In this example, this is:
@@ -37,7 +35,7 @@
        }
 
    4. Use property ServerURL to define the resource on the server side to talk
-      to. In this example, a REST API is addressed.
+      to. In this example, it is just a mockup API named "API.php".
 
    3. Use property OnServerResponse to set a custom server response examination
       handler that examines the response received from the server. In this
@@ -76,17 +74,16 @@ type
     ServerLogger1: TServerLogger;
     CbxEnableLogging: TWebCheckBox;
     BtnLogMioLines: TWebButton;
-    CbxCustomResponseHandler: TWebCheckBox;
+    CbxProvokeError: TWebCheckBox;
     EdNrRespToFail: TWebEdit;
     LabVersion: TWebLabel;
-    WebLabel2: TWebLabel;
     procedure WebFormCreate(Sender: TObject);
     procedure ServerLogger1Error(Sender: TObject; Status: Integer; ErrorMessage: string);
     procedure ServerLogger1ServerResponse(Sender: TObject; const HTTPStatus: Integer;
      const Response: string; var IsSuccess: Boolean; var ErrorMessage: string);
     procedure BtnLogOneLineClick(Sender: TObject);
     procedure CbxEnableLoggingClick(Sender: TObject);
-    procedure CbxCustomResponseHandlerClick(Sender: TObject);
+    procedure CbxProvokeErrorClick(Sender: TObject);
     [async] procedure BtnLogMioLinesClick(Sender: TObject);
    private
     FNrResponses  : Integer;
@@ -180,7 +177,7 @@ begin
  {-----------}
 
  // Custom examination of the response received from the server
- // This might be a typical response from a REST API:
+ // These are possible responses from the mocked REST API:
  //  {"Result":"OK","Version":101569}
  //  {"Result":"Error","ErrorDetails":{"ErrorClass":"EBaseRESTError","ErrorMessage":"File not found"]},"Version":101569}
  try
@@ -254,23 +251,10 @@ end;
 {------------------------------------}
 
 // Toggle using a custom server response examination handler
-procedure TForm1.CbxCustomResponseHandlerClick(Sender: TObject);
-var WasEnabled: Boolean;
+procedure TForm1.CbxProvokeErrorClick(Sender: TObject);
 begin
  FNrResponses := 0;
  FNrRespToFail := StrToInt(EdNrRespToFail.Text);
-
- // Changes to the configuration are only allowed when diabled
- WasEnabled := ServerLogger1.Enabled;
- if WasEnabled then ServerLogger1.Enabled := False;
- try
-  if CbxCustomResponseHandler.Checked then
-   ServerLogger1.OnServerResponse := Self.ServerLogger1ServerResponse
-  else
-   ServerLogger1.OnServerResponse := nil;
- finally
-  if WasEnabled then ServerLogger1.Enabled := True;
- end;
 end;
 
 {------------------------------------}

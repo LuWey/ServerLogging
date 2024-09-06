@@ -8,7 +8,7 @@
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
-        <MainSource>ServerLoggerDemo.dpr</MainSource>
+        <MainSource>BasicServerLoggerDemo.dpr</MainSource>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -57,7 +57,7 @@
         <TMSWebProject>2</TMSWebProject>
         <Icon_MainIcon>$(BDS)\bin\delphi_PROJECTICON.ico</Icon_MainIcon>
         <Icns_MainIcns>$(BDS)\bin\delphi_PROJECTICNS.icns</Icns_MainIcns>
-        <SanitizedProjectName>ServerLoggerDemo</SanitizedProjectName>
+        <SanitizedProjectName>BasicServerLoggerDemo</SanitizedProjectName>
         <TMSWebHTMLFile>index.html</TMSWebHTMLFile>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
@@ -86,10 +86,10 @@
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
-        <TMSWebSourcePaths>$(TMSWebSourcePaths);..\Core Source;..\Common</TMSWebSourcePaths>
+        <TMSWebSourcePaths>$(TMSWebSourcePaths);..\..\Core Source;..\..\Common</TMSWebSourcePaths>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <DCC_UnitSearchPath>..\Component Library Source;..\Common;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>..\..\Component Library Source;..\..\Common;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <TMSWebPrivExts>$(TMSWebPrivExts);.php</TMSWebPrivExts>
         <TMSWebBrowser>7</TMSWebBrowser>
     </PropertyGroup>
@@ -121,7 +121,7 @@
             <DesignClass>TWebForm</DesignClass>
         </DCCReference>
         <None Include="index.html"/>
-        <None Include="..\Server\LogIt.php"/>
+        <None Include="..\..\Server\PHP\LogIt.php"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -140,7 +140,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">ServerLoggerDemo.dpr</Source>
+                    <Source Name="MainSource">BasicServerLoggerDemo.dpr</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="C:\Users\Public\Documents\Embarcadero\Studio\21.0\Bpl\PngComponents250.bpl">Png Components</Excluded_Packages>
@@ -149,19 +149,19 @@
                 </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="3">
+                <DeployFile LocalName="Win32\Debug\BasicServerLoggerDemo.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>BasicServerLoggerDemo.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="index.html" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="Win32\Debug\ServerLoggerDemo.exe" Configuration="Debug" Class="ProjectOutput">
-                    <Platform Name="Win32">
-                        <RemoteName>ServerLoggerDemo.exe</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="..\Server\LogIt.php" Configuration="Debug" Class="ProjectFile">
+                <DeployFile LocalName="..\..\Server\PHP\LogIt.php" Configuration="Debug" Class="ProjectFile">
                     <Platform Name="Win32">
                         <RemoteDir>.\</RemoteDir>
                         <Overwrite>true</Overwrite>

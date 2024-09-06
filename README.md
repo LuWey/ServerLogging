@@ -47,4 +47,4 @@ When launching a TMS Web Core application using ServerLogging by hitting F9 in t
  - When hitting F9 in the Delphi IDE, the browser starts with a URL like so: `localhost:8000/myapp/index.html`
  - Delete the ":8000" portion from this URL such that it now reads: `localhost/myapp/index.html` and hit `<enter>`
 
-Remember to add the PHP file to the TMS Web Core project so that it is automatically distributed to the appropriate \TMSWeb\ output subdirectory. Also remember to add ".php" (with leading dot!) to the project options under "Project > Options > Building > TMS Web > Compile > Automatically copied file suffixes".
+Remember to add the PHP file to the TMS Web Core project so that it is automatically deployed to the appropriate \TMSWeb\ output subdirectory. Also remember to add ".php" (with leading dot!) to the project options under `Project > Options > Building > TMS Web > Compile > Automatically copied file suffixes`.

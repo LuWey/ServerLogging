@@ -1,4 +1,4 @@
-# About ServerLogging
+# ![grafik](https://github.com/user-attachments/assets/c3228fa4-7b47-4cef-9afd-d916ad6d8505) About ServerLogging
 
 #### A TMS Web Core class and ready-to-use component for sending browser console output to a server
 
